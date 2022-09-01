@@ -1,0 +1,77 @@
+<div class="bg-white text-black flex flex-wrap overflow-hidden">
+    <div class="splide2">
+        <div class="splide__track">
+            <ul class="splide__list">
+                {% for i in options.logos %}
+                    <li class="splide__slide flex justify-center flex-col">
+                    <span class="p-4"><img class="flex-none grayscale" src="{{i.image|resize(140)}}" /></span></li>
+                {% endfor %}   
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="footer" class="bg-cover p-10 lg:p-20" style="background-image: url('{{site.theme.link}}/assets/img/footer.jpg');">
+    <div class="flex flex-col lg:flex-row">
+        <div class="flex flex-col lg:w-4/12 lg:pr-20">
+            <a class="inline-block" href="{{site.url}}" rel="home"><span class="screen-reader-text">{{site.name}}</span> <img class="w-[350px]" src="{{site.theme.link}}/assets/img/logo.png" /></a>
+
+            <hr class="c-footer-hr relative border-0 overflow-visible mt-10 mb-20   ">
+
+            <h3 class="text-xl c-footer__title relative pb-2 mb-10">Services</h3>
+            <ul>
+                {% for item in footerServicesMenu.get_items %}
+                    <li class="{{ item.classes | join(' ') }}">
+                        <a target="{{ item.target }}" href="{{ item.link }}" class="hover:text-yellow transition">{{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h3 class="text-xl c-footer__title relative pb-2 mb-10 mt-10">Connect</h3>
+
+            <div class="flex flex-row flex-wrap">
+                {% if linkedin %}
+                <a class="inline-block mr-5 mb-5" href="{{linkedin}}"><svg class="h-10 w-200 inline hover:opacity-70 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117 33"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Artboard-Copy" transform="translate(-84 -3419)" fill="#FFF" fill-rule="nonzero"><g id="Group-13" transform="translate(-291 2705)"><g id="Group-12" transform="translate(0 230)"><g id="Group-11" transform="translate(347 34.5)"><g id="Group-5-Copy-3" transform="translate(26.98 365.5)"><g id="l" transform="translate(1.02 84)"><path d="M19 8.168c0 1.198-.962 2.168-2.547 2.168-1.49 0-2.453-.967-2.453-2.168C14 6.941 14.993 6 16.513 6c1.525 0 2.456.941 2.487 2.168ZM14.124 26h4.72V12.049h-4.72V26Z" id="Fill-113"/><path d="M21.12 16.676c0-1.707-.06-3.135-.12-4.367h3.949l.21 1.903h.09c.597-.896 2.063-2.212 4.516-2.212C32.755 12 35 13.877 35 17.908V26h-4.548v-7.59c0-1.764-.657-2.968-2.303-2.968-1.257 0-2.004.813-2.333 1.597-.12.278-.15.668-.15 1.063v7.896H21.12v-9.322Z" id="Fill-115"/><path d="M41.29 18.03h.057c.3-.572.629-1.126.988-1.662l2.795-4.143h5.165l-4.94 5.576L51 26h-5.278l-3.36-5.663-1.072 1.353V26H37V6h4.29v12.03Z" id="Fill-117"/><path d="M55.055 20.94c.11 1.853 1.87 2.737 3.856 2.737 1.452 0 2.629-.204 3.773-.62l.56 3.032c-1.398.616-3.103.911-4.949.911C53.655 27 51 24.175 51 19.678 51 16.028 53.154 12 57.903 12 62.322 12 64 15.618 64 19.177c0 .764-.086 1.44-.142 1.764h-8.803Zm5-3.057c0-1.089-.446-2.913-2.402-2.913-1.788 0-2.516 1.736-2.628 2.913h5.03Z" id="Fill-119"/><path d="M79.883 6v16.427c0 1.6.058 3.291.117 4.252h-4.002l-.178-2.065h-.087C74.842 26.185 73.063 27 71.194 27 67.754 27 65 24.115 65 19.689c-.032-4.804 3.022-7.601 6.491-7.601 1.81 0 3.172.64 3.826 1.6h.06V6h4.506Zm-4.509 12.465c0-.233 0-.552-.06-.815-.267-1.165-1.245-2.155-2.639-2.155-2.075 0-3.113 1.805-3.113 4.048 0 2.417 1.216 3.933 3.086 3.933 1.302 0 2.37-.874 2.637-2.126.06-.321.091-.671.091-1.02v-1.862l-.002-.003Z" id="Fill-121"/><path d="M113.673 0c.884.001 1.731.35 2.355.968.624.62.974 1.458.972 2.331v26.402a3.273 3.273 0 0 1-.972 2.33 3.352 3.352 0 0 1-2.355.969H87.327a3.352 3.352 0 0 1-2.355-.968A3.273 3.273 0 0 1 84 29.7V3.299a3.273 3.273 0 0 1 .972-2.33A3.352 3.352 0 0 1 87.327 0ZM94.592 11.996h-4.44v14.116h4.44V11.996Zm11.098-.318c-2.395 0-3.827 1.357-4.408 2.28h-.09l-.205-1.962h-3.856c.059 1.27.117 2.74.117 4.503v9.61h4.44v-8.137c0-.405.029-.81.146-1.1.322-.807 1.051-1.643 2.278-1.643 1.607 0 2.249 1.241 2.249 3.059v7.822h4.44v-8.34c0-4.159-2.189-6.092-5.11-6.092ZM92.401 5.876c-1.431 0-2.366.952-2.366 2.193 0 1.213.905 2.194 2.308 2.194 1.488 0 2.395-.981 2.395-2.194-.03-1.241-.907-2.193-2.337-2.193Z" id="Fill-123"/><path id="Fill-112" d="M0 7h4.343v15.391H12V26H0z"/></g></g></g></g></g></g></g></svg></a>
+                {% endif %}
+
+                {% if facebook %}
+                <a class="inline-block mr-5 mb-5" href="{{facebook}}"><svg class="h-10 w-10 inline hover:opacity-70 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 33"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Artboard-Copy" transform="translate(-237 -3419)" fill="#FFF" fill-rule="nonzero"><g id="Group-13" transform="translate(-291 2705)"><g id="Group-12" transform="translate(0 230)"><g id="Group-11" transform="translate(347 34.5)"><g id="Group-5-Copy-3" transform="translate(26.98 365.5)"><g id="f" transform="translate(154.02 84)"><path d="M3.327 16.502V33h6.644V16.498h4.441L15 10.817H9.974l-.005-.09c.002-.742-.002-1.483.009-2.228.007-.503.015-1.01.064-1.514.024-.532.383-.987.889-1.127.293-.099.592-.15.896-.152 1.003-.011 2.004-.011 3.01-.01.104 0 .137-.026.137-.138V.141c0-.112-.031-.141-.137-.141-1.342.007-2.685.004-4.027.007-.645 0-1.288.02-1.926.103A8.66 8.66 0 0 0 7.25.476C5.73.991 4.617 1.968 3.983 3.474 3.517 4.58 3.35 5.75 3.33 6.94c-.02 1.248-.005 2.497-.005 3.74v.143H0v5.681h3.327v-.002Z" id="Fill-109"/></g></g></g></g></g></g></g></svg></a>
+                {% endif %}
+
+                {% if instagram %}
+                    <a class="inline-block mr-5 mb-5" href="{{instagram}}"><svg class="h-10 w-10 inline hover:opacity-70 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Artboard-Copy" transform="translate(-292 -3423)" fill="#FFF" fill-rule="nonzero"><g id="Group-13" transform="translate(-291 2705)"><g id="Group-12" transform="translate(0 230)"><g id="Group-11" transform="translate(347 34.5)"><g id="Group-5-Copy-3" transform="translate(26.98 365.5)"><g id="i" transform="translate(209.02 88)"><path d="M22.485 17.552a4.933 4.933 0 0 1-4.933 4.933H7.447a4.933 4.933 0 0 1-4.932-4.933V7.447a4.932 4.932 0 0 1 4.932-4.932h10.105a4.932 4.932 0 0 1 4.933 4.932v10.105ZM17.552 0H7.447A7.455 7.455 0 0 0 0 7.447v10.105A7.455 7.455 0 0 0 7.447 25h10.105A7.457 7.457 0 0 0 25 17.552V7.447A7.455 7.455 0 0 0 17.552 0Z" id="Fill-99"/><path d="M12.503 16.47a3.97 3.97 0 1 1 0-7.941 3.97 3.97 0 0 1 0 7.941m0-10.47A6.508 6.508 0 0 0 6 12.502 6.506 6.506 0 0 0 12.5 19a6.506 6.506 0 0 0 6.5-6.498A6.508 6.508 0 0 0 12.503 6" id="Fill-103"/></g></g></g></g></g></g></g></svg></a>
+                {% endif %}
+
+                {% if archipro %}
+                    <a class="inline-block mb-5" href="{{archipro}}"><svg class="h-10 w-200 inline hover:opacity-70 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 32" class="logo-light"><g fill="none" fill-rule="evenodd"><g fill-rule="nonzero"><g><path d="M32,8.36222532 L38.5964721,8.36222532 L38.5964721,11.8957191 L38.721222,11.8957191 C40.2487725,9.20036578 42.0309147,8.00834379 44.6455719,8.00834379 C45.1036215,7.97647696 45.5632872,8.0360756 46,8.18395417 L46,14.3728898 L45.8319694,14.3728898 C41.6006547,13.7555927 38.8917985,15.921454 38.8917985,20.8279017 L38.8917985,31 L32,31 L32,8.36222532 Z" fill="#F8F9FA"></path><path d="M48,19.9920053 C48,13.1725516 52.5311514,8 59.4538866,8 C65.3942724,8 69.1976622,11.586942 69.8379895,16.679547 L63.1286967,16.679547 C62.6992402,14.6409061 61.5060199,13.3137908 59.5284629,13.3137908 C56.5376973,13.3137908 55.0410286,15.8827448 55.0410286,20 C55.0410286,24.0319787 56.5376973,26.5982678 59.5284629,26.5982678 C61.7091759,26.5982678 63.0335476,25.2658228 63.3318527,22.6995336 L70,22.6995336 C69.8277031,27.928048 65.8108708,32 59.6133255,32 C52.5722969,31.9920053 48,26.8141239 48,19.9920053 Z" fill="#F8F9FA"></path><path d="M72,0 L79.2301347,0 L79.2301347,11.5372506 L79.3635812,11.5372506 C81.0049739,9.41038808 82.9559626,8.14470915 86.1053015,8.14470915 C91.0721825,8.14470915 94,11.6103207 94,16.5556023 L94,30.9973904 L86.7698653,30.9973904 L86.7698653,17.9987373 C86.7698653,15.6500547 85.5715152,14.0503409 83.2201868,14.0503409 C80.8181487,14.0503409 79.21679,16.0049667 79.21679,18.7346578 L79.21679,31 L72,31 L72,0 Z" fill="#F8F9FA"></path><path d="M97,0 L104,0 L104,5.72412052 L97,5.72412052 L97,0 Z M97,8.80272681 L104,8.80272681 L104,31 L97,31 L97,8.80272681 Z" fill="#F8F9FA"></path><path d="M108,0 L122.20958,0 C126.049433,0 128.874885,1.04324415 130.8134,2.86892142 C132.844858,4.73632845 134,7.38095238 134,10.5002524 C134,16.4389197 129.806966,20.6431937 123.322235,20.6431937 L115.947911,20.6431937 L115.947911,31 L108,31 L108,0 Z M121.723624,14.5610803 C124.54642,14.5610803 126.137065,12.9179707 126.137065,10.4454821 C126.137065,7.97299344 124.503932,6.45768131 121.723624,6.45768131 L115.947911,6.45768131 L115.947911,14.5610803 L121.723624,14.5610803 Z" fill="#F8F9FA"></path><path d="M136,8.36222532 L142.599164,8.36222532 L142.599164,11.8957191 L142.723868,11.8957191 C144.250863,9.20036578 146.032358,8.00834379 148.646064,8.00834379 C149.103947,7.97647696 149.563446,8.0360756 150,8.18395417 L150,14.3728898 L149.829486,14.3728898 C145.602254,13.7555927 142.894383,15.921454 142.894383,20.8279017 L142.894383,31 L136,31 L136,8.36222532 Z" fill="#F8F9FA"></path><path d="M151,20 C151,13.175996 155.826403,8 163.021122,8 C170.260726,8 175,13.183996 175,20 C175,26.8159855 170.260726,32 163.021122,32 C155.831683,32.0079815 151,26.8266522 151,20 Z M167.760396,19.9999908 C167.760396,15.8799939 166.094389,13.0853294 162.978878,13.0853294 C159.863366,13.0853294 158.239604,15.8799939 158.239604,19.9999908 C158.239604,24.1199876 159.863366,26.8693188 162.978878,26.8693188 C166.094389,26.8693188 167.765677,24.1199876 167.765677,19.9999908 L167.760396,19.9999908 Z" fill="#F8F9FA"></path><path fill="#F8F9FA" d="M7.66122766 31 0 31 11.0619011 0 18.8940689 0 30 31 21.994302 31 20.1864802 25.4063289 14.8044548 8.0200303z"></path><path fill="#BEA78C" d="M179 26 185 26 185 32 179 32z"></path></g></g></g></svg></a>
+                {% endif %}
+            </div>
+
+            
+        </div>
+
+        <div class="flex flex-col lg:w-3/12 mb-10 c-footer__center-col relative lg:pl-10">
+            <h3 class="text-xl c-footer__title relative pb-2 mb-10 mt-10 lg:mt-0">Visit</h3>
+            <p class="pr-8">{{address}}</p>
+
+            <h3 class="text-xl c-footer__title relative pb-2 mb-10 mt-10 lg:mt-16 pt-2">Contact Us</h3>
+            {# <p class="text-yellow mb-2">Auckland</p> #}
+            <p class="mb-2"><a href="tel:{{phone}}" class="hover:opacity-70 transition"><svg class="w-5 inline-block mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 18"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Artboard-Copy" transform="translate(-480 -3297)" fill="#FFF" fill-rule="nonzero"><g id="Group-13" transform="translate(-291 2705)"><g id="Group-12" transform="translate(0 230)"><g id="Group-11" transform="translate(347 34.5)"><g id="Group-6" transform="translate(420 298.5)"><g id="iconmonstr-smartphone-3" transform="translate(4 29)"><path d="M11 1.5C11 .672 10.296 0 9.429 0H1.57C.704 0 0 .672 0 1.5v15c0 .828.704 1.5 1.571 1.5H9.43c.867 0 1.571-.672 1.571-1.5v-15Zm-6.679 0H6.68c.216 0 .392.168.392.375a.384.384 0 0 1-.392.375H4.32a.384.384 0 0 1-.392-.375c0-.207.176-.375.392-.375Zm1.179 15c-.434 0-.786-.336-.786-.75S5.065 15 5.5 15c.434 0 .785.336.785.75s-.351.75-.785.75Zm3.929-2.25H1.57V3.732H9.43V14.25Z" id="Shape"/></g></g></g></g></g></g></g></svg> {{phone}}</a></p>
+            <p><a href="mailto:{{email}}" class="hover:opacity-70 transition"><svg  class="w-5 inline-block mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Artboard-Copy" transform="translate(-478 -3331)" fill="#FFF" fill-rule="nonzero"><g id="Group-13" transform="translate(-291 2705)"><g id="Group-12" transform="translate(0 230)"><g id="Group-11" transform="translate(347 34.5)"><g id="Group-6" transform="translate(420 298.5)"><g id="iconmonstr-email-2" transform="translate(2 63)"><path d="M0 0v12h16V0H0Zm4.415 5.286L1.333 9.094V2.789l3.082 2.497Zm-2.76-3.953h12.69L8 6.475 1.655 1.333ZM5.45 6.125 8 8.191l2.553-2.069 3.742 4.545H1.775l3.676-4.542Zm6.138-.842 3.078-2.494V9.02l-3.078-3.738Z" id="Shape"/></g></g></g></g></g></g></g></svg> {{email}}</a></p>
+
+            {# <p class="text-yellow mt-10 mb-2">Christchurch</p>
+            <p class="mb-2"><a href="tel:{{auckland_phone}}" class="hover:opacity-70 transition"><svg class="w-5 inline-block mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 18"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Artboard-Copy" transform="translate(-480 -3297)" fill="#FFF" fill-rule="nonzero"><g id="Group-13" transform="translate(-291 2705)"><g id="Group-12" transform="translate(0 230)"><g id="Group-11" transform="translate(347 34.5)"><g id="Group-6" transform="translate(420 298.5)"><g id="iconmonstr-smartphone-3" transform="translate(4 29)"><path d="M11 1.5C11 .672 10.296 0 9.429 0H1.57C.704 0 0 .672 0 1.5v15c0 .828.704 1.5 1.571 1.5H9.43c.867 0 1.571-.672 1.571-1.5v-15Zm-6.679 0H6.68c.216 0 .392.168.392.375a.384.384 0 0 1-.392.375H4.32a.384.384 0 0 1-.392-.375c0-.207.176-.375.392-.375Zm1.179 15c-.434 0-.786-.336-.786-.75S5.065 15 5.5 15c.434 0 .785.336.785.75s-.351.75-.785.75Zm3.929-2.25H1.57V3.732H9.43V14.25Z" id="Shape"/></g></g></g></g></g></g></g></svg> {{auckland_phone}}</a></p>
+            <p><a href="tel:{{auckland_email}}" class="hover:opacity-70 transition"><svg  class="w-5 inline-block mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Artboard-Copy" transform="translate(-478 -3331)" fill="#FFF" fill-rule="nonzero"><g id="Group-13" transform="translate(-291 2705)"><g id="Group-12" transform="translate(0 230)"><g id="Group-11" transform="translate(347 34.5)"><g id="Group-6" transform="translate(420 298.5)"><g id="iconmonstr-email-2" transform="translate(2 63)"><path d="M0 0v12h16V0H0Zm4.415 5.286L1.333 9.094V2.789l3.082 2.497Zm-2.76-3.953h12.69L8 6.475 1.655 1.333ZM5.45 6.125 8 8.191l2.553-2.069 3.742 4.545H1.775l3.676-4.542Zm6.138-.842 3.078-2.494V9.02l-3.078-3.738Z" id="Shape"/></g></g></g></g></g></g></g></svg> {{auckland_email}}</a></p> #}
+
+        </div>
+
+        <div id="book" class="flex flex-col lg:w-5/12 lg:pl-20">
+
+            <h3 class="text-xl c-footer__title relative pb-2 mb-10">Have a project in mind?</h3>
+            <p class="mb-10">Book a consultation</p>
+
+            {% filter shortcodes %}[gravityform id="1" title="false" description="false" ajax="true"]{% endfilter %}
+        </div>
+    </div>
+    <p class="text-center">&copy {{"now"|date('Y')}} {{site.title}} | <a target="_blank" class="hover:text-yellow" href="https://www.digitalsimple.co.nz">Site by Digital Simple</a></p>
+</div>
